@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CR</title>
+</head>
+<body>
+    <form method="POST" action="editing_page.php">
+        <div class="wrapper_auth">
+            <div class="avatar">
+                <img id="image" src="avatars/avatar_1_1.jpg">
+            </div>
+
+            <div class="slide_left" onClick="imgsrc_left();">
+                <div class="left_buttom">
+                    <span><</span>
+                </div>
+            </div>
+
+            <div class="slide_right" onClick="imgsrc_right();">
+                <div class="right_buttom">
+                    <span>></span>
+                </div>
+            </div>
+
+            <div class="login">
+                <label>Логин</label>
+            </div>
+
+            <input type="text" name="login_form" class="login_form">
+
+            <div class="password">
+                <label>Пароль</label>
+            </div>
+
+            <input type="password" name="password_form" class="password_form">
+            <input type="hidden" name="selected_avatar" value="0">
+            <button class="entrance_button">обновление</button>
+            <button class="entrance_button_3d"></button>
+        </div>
+    </form>
+    <script language="javascript">
+        var i=0;
+        var image=document.getElementById("image");
+        var imgs=new Array('avatars/avatar_1.jpg','avatars/avatar_2.jpg', 'avatars/avatar_3.jpg', 'avatars/avatar_4.jpg', 'avatars/avatar_5.jpg', 'avatars/avatar_6.jpg', 'avatars/avatar_7.jpg', 'avatars/avatar_8.jpg', 'avatars/avatar_9.jpg', 'avatars/avatar_10.jpg', 'avatars/avatar_11.jpg', 'avatars/avatar_12.jpg', 'avatars/avatar_13.jpg', 'avatars/avatar_14.jpg', 'avatars/avatar_15.jpg', 'avatars/avatar_16.jpg');
+        function imgsrc_left() {
+            i--;
+            if (i == -1) {
+                i = 15;
+            }
+            image.src=imgs[i];
+            document.querySelector('input[name="selected_avatar"]').value = i;
+        }
+        function imgsrc_right() {
+            if (i == 15) {
+                i = -1;
+            }
+            i++;
+            image.src=imgs[i];
+            document.querySelector('input[name="selected_avatar"]').value = i;
+        }
+    </script>
+</body>
+</html>
